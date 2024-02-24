@@ -79,7 +79,7 @@ public class ExtendableCoordniates extends JFrame {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                content.append(line).append("\n");
+                content.append(line);
             }
         }
         return content.toString();
