@@ -57,15 +57,15 @@ public class ExtendableCoordniates extends JFrame {
                     String localContent = readFile(localFilePath).trim();
                     String ghc = githubContent.trim();
                     
-                    writeFile("1.txt", githubContent);
+                    writeFile("1.txt", ghc);
                     writeFile("2.txt", localContent);
 
                     System.out.println("GitHub content length: " + ghc.length());
                     System.out.println("Local content length: " + localContent.length());
-                    if (!githubContent.equals(localContent)) {
+                    if (!ghc.equals(localContent)) {
                         
                         System.out.println("Update Found. Downloading...");
-                        writeFile(localFilePath, githubContent);
+                        writeFile(localFilePath, ghc);
                         System.out.println("File updated successfully.");
                     } else {
                         System.out.println("File is already up to date.");
