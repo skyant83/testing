@@ -56,12 +56,7 @@ public class ExtendableCoordniates extends JFrame {
                 try {
                     String localContent = readFile(localFilePath).trim();
                     String ghc = githubContent.trim();
-                    
-                    writeFile("1.txt", ghc);
-                    writeFile("2.txt", localContent);
-
-                    System.out.println("GitHub content length: " + ghc.length());
-                    System.out.println("Local content length: " + localContent.length());
+			
                     if (!ghc.equals(localContent)) {
                         
                         System.out.println("Update Found. Downloading...");
