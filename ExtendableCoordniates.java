@@ -40,7 +40,7 @@ public class ExtendableCoordniates extends JFrame {
     }
 
     private void checkForupdates() {
-        String githubRawURL = "";
+        String githubRawURL = "https://raw.githubusercontent.com/skyant83/testing/main/ExtendableCoordniates.java";
         String localFilePath = "ExtendableCoordniates.java";
 
         HttpClient client = HttpClient.newHttpClient();
