@@ -53,6 +53,8 @@ public class ExtendableCoordniates extends JFrame {
             .thenAccept(githubContent -> {
                 try {
                     String localContent = readFile(localFilePath);
+                    System.out.println("GitHub content length: " + githubContent.length());
+                    System.out.println("Local content length: " + localContent.length());
                     if (!githubContent.equals(localContent)) {
                         
                         System.out.println("Update Found. Downloading...");
