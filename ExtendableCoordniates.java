@@ -5,6 +5,7 @@
 
 	@author Enrique Gabriel Badiola
 	@since 23 February 2024
+ 	@version 1.0
 
 	I have not used Java language code obtained from another student, 
 	or any other unauthorized source, either modified or unmodified.
