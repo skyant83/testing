@@ -52,7 +52,8 @@ public class ExtendableCoordniates extends JFrame {
             .thenApply(HttpResponse::body)
             .thenAccept(githubContent -> {
                 try {
-                    String localContent = readFile(localFilePath);
+                    String localContent = readFile(localFilePath).trim();
+                    String ghc = githubContent.trim();
                     System.out.println("GitHub content length: " + githubContent.length());
                     System.out.println("Local content length: " + localContent.length());
                     if (!githubContent.equals(localContent)) {
