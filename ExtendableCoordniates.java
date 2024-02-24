@@ -69,18 +69,19 @@ public class ExtendableCoordniates extends JFrame {
     }
 
     private void writeFile(String filePath, String content) throws IOException {
-        BufferedWriter writer =  new BufferedWriter(new FileWriter(filePath));
-        writer.write(content);
-        writer.close();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(content);
+        }
     }
     
     private String readFile(String filePath) throws IOException {
         StringBuilder content = new StringBuilder();
-        BufferedReader reader = new BufferedReader(new FileReader(filePath));
-        String line;
-        while ((line = reader.readLine()) != null) 
-            content.append(line).append("\n");
-        reader.close();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+        }
         return content.toString();
     }
 
