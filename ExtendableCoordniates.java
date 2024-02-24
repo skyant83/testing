@@ -13,7 +13,9 @@
 import java.io.*;
 import java.net.URI;
 import java.net.http.*;
-
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import javax.swing.JFrame;
@@ -55,7 +57,7 @@ public class ExtendableCoordniates extends JFrame {
                     String localContent = readFile(localFilePath).trim();
                     String ghc = githubContent.trim();
                     
-                    writeFile("1.txt", ghc);
+                    writeFile("1.txt", githubContent);
                     writeFile("2.txt", localContent);
 
                     System.out.println("GitHub content length: " + ghc.length());
@@ -82,14 +84,16 @@ public class ExtendableCoordniates extends JFrame {
     }
     
     private String readFile(String filePath) throws IOException {
-        StringBuilder content = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line);
-            }
-        }
-        return content.toString();
+        // StringBuilder content = new StringBuilder();
+        // try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            // String line;
+            // while ((line = reader.readLine()) != null) {
+                // content.append(line);
+            // }
+        // }
+        // return content.toString();
+        String text = new String(Files.readAllBytes(Paths.get(filePath)), StandardCharsets.UTF_8);
+        return text;
     }
 
     /**
